@@ -1,13 +1,3 @@
-.386
-.model flat,stdcall
-	option casemap:none
-include windows.inc
-include kernel32.inc
-includelib kernel32.lib
-include user32.inc
-includelib user32.lib
-;--------------------------------------------------------------------------------
-
 .data
 walloc proto object:dword,muls:dword
 func struct
@@ -35,7 +25,7 @@ ways struct
 	max dd 0
 	nowaddr dd ?
 ways ends
-way ways <>
+way ways  <> 
 path ways <>
 heaps dd ?
 count byte 0
@@ -57,10 +47,6 @@ read proc,fbuf:dword,len:dword
 	mov esi,fbuf
 	shr ecx,1	
 	looop:
-	mov eax,$
-
-	cmp ecx,0
-	jne [12]
 	dec ecx
 	mov ax,[esi]
 	add esi,2
